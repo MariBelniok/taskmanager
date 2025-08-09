@@ -16,13 +16,14 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     List<Task> findAllByOrderByTitleDesc();
 
     @Query("""
-            SELECT t FROM Task t
-            WHERE(:completed IS NULL OR t.completed = :completed)
-            AND(:title IS NULL OR LOWER(t.title) LIKE LOWER(CONCAT('%', :title, '%')))
-            AND(:dueDate IS NULL OR t.dueDate < :dueDate
+        SELECT t FROM Task t
+        WHERE(:completed IS NULL OR t.completed = :completed)
+        AND(:title IS NULL OR LOWER(t.title) LIKE LOWER(CONCAT('%', :title, '%')))
+        AND(:dueDate IS NULL OR t.dueDate < :dueDate)
     """)
     List<Task> searchTask(
             @Param("completed") Boolean completed,
             @Param("title") String title,
-            @Param("dueDate") LocalDate dueDate);
+            @Param("dueDate") LocalDate dueDate
+    );
 }
