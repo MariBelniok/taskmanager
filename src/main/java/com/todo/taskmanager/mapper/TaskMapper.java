@@ -3,7 +3,6 @@ package com.todo.taskmanager.mapper;
 import com.todo.taskmanager.dto.TaskDTO;
 import com.todo.taskmanager.model.Task;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
