@@ -27,6 +27,7 @@ public class TaskService {
 
     public TaskDTO createTask(TaskDTO taskDTO) {
         Task task = taskMapper.toEntity(taskDTO);
+        taskRepository.save(task);
         return taskMapper.toDTO(task);
     }
 
